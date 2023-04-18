@@ -4,5 +4,7 @@ Build:
  script:
  - mkdir -p /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID
  - $DBB_HOME/bin/groovyz -Djava.library.path=$DBB_HOME/lib:/usr/lib/java_runtime64 build.groovy --workspace /u/ibmuser/$CI_PROJECT_DIR/samples --hlq GITLAB.ZAPP.CLEAN.MAIN --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID --application MortgageApplication --logEncoding UTF-8 --fullBuild --verbose
+ - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID/dbb-outputdir --component MYCOMP --propertyFile /u/ibmuser/ibm-ucd/agent/conf/artifactrepository/myapp.artifactory.properties --versionName MyVersion
+
 variables:
  CI_DEBUG_TRACE: "true"
