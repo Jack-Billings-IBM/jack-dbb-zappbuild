@@ -7,7 +7,7 @@ Build:
 
 Deploy:
     script:
-         - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID/dbb-outputdir --component MYCOMP --propertyFile /u/ibmuser/ibm-ucd/agent/conf/artifactrepository/myapp.artifactory.properties --versionName MyVersion
+         - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID/ --component MYCOMP --propertyFile /u/ibmuser/ibm-ucd/agent/conf/applicationRepositoryProps.properties --versionName MyVersion
 
 variables:
  CI_DEBUG_TRACE: "true"
