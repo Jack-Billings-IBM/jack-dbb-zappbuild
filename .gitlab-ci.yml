@@ -36,4 +36,4 @@ Deploy:
         GIT_STRATEGY: none
         GIT_CHECKOUT: "false"
     script:
-        - $DBB_HOME/bin/groovyz Pipeline/DeployUCDComponentVersion/ucd-deploy.groovy  -a "MortgageApplication" -e "test-application-environment" -U admin -P thor13 -u https://ucdserver.ibm.cloud:8443 -d "MortgageApllication:latest" -p Deploy -k
+        - $DBB_HOME/bin/groovyz Pipeline/DeployUCDComponentVersion/ucd-deploy.groovy  -a "MortgageApplication" -e "test-application-environment" -U admin -P thor13 -u https://169.62.42.236:8443 -d "MortgageApllication:latest" -p Deploy -k
