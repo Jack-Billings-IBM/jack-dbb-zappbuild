@@ -14,7 +14,7 @@ variables:
 
 stages:
     - Build
-    - Package
+    # - Package
 
 Build:
     stage: Build
@@ -22,7 +22,7 @@ Build:
         - mkdir -p /u/ibmuser/$CI_PROJECT_DIR/BUILD-OUTPUT
         - $DBB_HOME/bin/groovyz -Djava.library.path=$DBB_HOME/lib:/usr/lib/java_runtime64 build.groovy --workspace /u/ibmuser/$CI_PROJECT_DIR/samples --hlq GITLAB.ZAPP.CLEAN.MAIN --workDir /u/ibmuser/$CI_PROJECT_DIR --application MortgageApplication --logEncoding UTF-8 --fullBuild --verbose
 
-Package:
-    stage: Package
-    script:
-        - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR --component MYCOMP --propertyFile /u/ibmuser/ibm-ucd/agent/conf/applicationRepositoryProps.properties --versionName MyVersion
+# Package:
+#     stage: Package
+#     script:
+#         - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR --component MYCOMP --propertyFile /u/ibmuser/ibm-ucd/agent/conf/applicationRepositoryProps.properties --versionName MyVersion
