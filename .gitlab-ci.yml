@@ -28,8 +28,8 @@ Package:
         GIT_STRATEGY: none
         GIT_CHECKOUT: "false"
     script:
-        - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent-randy/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID --component MYCOMP --propertyFile /u/ibmuser/ibm-ucd/agent/conf/applicationRepositoryProps.properties --versionName $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID --pipelineURL https://gitlab.com/ibm65/dbb-zappbuild/-/ci/pipelines/$CI_PIPELINE_ID --ucdV2PackageFormat
-        # - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID --component MYCOMP --propertyFile /u/ibmuser/ibm-ucd/agent/conf/applicationRepositoryProps.properties --versionName $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID 
+        # - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent-randy/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID --component MYCOMP --propertyFile /u/ibmuser/ibm-ucd/agent/conf/applicationRepositoryProps.properties --versionName $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID --pipelineURL https://gitlab.com/ibm65/dbb-zappbuild/-/ci/pipelines/$CI_PIPELINE_ID --ucdV2PackageFormat
+        - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent-randy/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID --component MYCOMP --propertyFile /u/ibmuser/ibm-ucd/agent/conf/applicationRepositoryProps.properties --versionName $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID 
 
 
 Deploy:
