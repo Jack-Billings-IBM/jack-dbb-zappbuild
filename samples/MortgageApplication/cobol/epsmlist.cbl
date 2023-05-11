@@ -50,7 +50,7 @@
           COPY EPSMTCOM.
 
        01  END-OF-TRANS-MSG                 PIC X(30)
-             VALUE 'END OF TRANSACTION - THANK YOU VERY MUCH'.
+             VALUE 'END OF TRANSACTION - THANK YO!'.
            COPY DFHAID.
       *    COPY DFHEIBLK.
 
