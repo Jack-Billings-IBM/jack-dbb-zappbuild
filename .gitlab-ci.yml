@@ -15,12 +15,13 @@ variables:
 stages:
     - Build
     - Package
-    - Deploy
+    # - Deploy
 
 Build:
     stage: Build
     script:
-        - $DBB_HOME/bin/groovyz -Djava.library.path=$DBB_HOME/lib:/usr/lib/java_runtime64 build.groovy --workspace /u/ibmuser/$CI_PROJECT_DIR/samples --hlq GITLAB.ZAPP.CLEAN.MAIN --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID --application MortgageApplication --logEncoding UTF-8 --fullBuild --verbose
+        # - $DBB_HOME/bin/groovyz -Djava.library.path=$DBB_HOME/lib:/usr/lib/java_runtime64 build.groovy --workspace /u/ibmuser/$CI_PROJECT_DIR/samples --hlq GITLAB.ZAPP.CLEAN.MAIN --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID --application MortgageApplication --logEncoding UTF-8 --fullBuild --verbose
+        - $DBB_HOME/bin/groovyz -Djava.library.path=$DBB_HOME/lib:/usr/lib/java_runtime64 build.groovy --workspace /u/ibmuser/$CI_PROJECT_DIR/samples --hlq IBMUSER.CATALOG --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID --application CatalogManagerApplication --logEncoding UTF-8 --fullBuild --verbose
 
 Package:
     stage: Package
@@ -28,23 +29,19 @@ Package:
         GIT_STRATEGY: none
         GIT_CHECKOUT: "false"
     script:
-        - echo project-dir $CI_PROJECT_DIR
-        - echo echo build-pipeline-id BUILD-$CI_PIPELINE_ID
-        - echo commit-ref-name-pipeline-id $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID
         # - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent-randy/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID --component MYCOMP --propertyFile /u/ibmuser/ibm-ucd/agent-randy/conf/applicationRepositoryPropsV2.properties --versionName $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID --pipelineURL https://gitlab.com/ibm65/dbb-zappbuild/-/ci/pipelines/$CI_PIPELINE_ID --ucdV2PackageFormat
-        - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID --component MYCOMP --propertyFile /u/ibmuser/ibm-ucd/agent/conf/applicationRepositoryPropsV2.properties --versionName $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID --pipelineURL https://gitlab.com/ibm65/dbb-zappbuild/-/ci/pipelines/$CI_PIPELINE_ID --ucdV2PackageFormat
-        # - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID --component MYCOMP --propertyFile /u/ibmuser/ibm-ucd/agent/conf/applicationRepositoryProps.properties --versionName $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID
-        # - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent-randy/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID --component MYCOMP --propertyFile /u/ibmuser/ibm-ucd/agent-randy/conf/applicationRepositoryProps.properties --versionName $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID 
+        # - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID --component MYCOMP --propertyFile /u/ibmuser/ibm-ucd/agent/conf/applicationRepositoryPropsV2.properties --versionName $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID --pipelineURL https://gitlab.com/ibm65/dbb-zappbuild/-/ci/pipelines/$CI_PIPELINE_ID --ucdV2PackageFormat
+        - $DBB_HOME/bin/groovyz Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool /u/ibmuser/ibm-ucd/agent/bin/buztool.sh --workDir /u/ibmuser/$CI_PROJECT_DIR/BUILD-$CI_PIPELINE_ID --component CATALOG --propertyFile /u/ibmuser/ibm-ucd/agent/conf/applicationRepositoryPropsV2.properties --versionName $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID --pipelineURL https://gitlab.com/ibm65/dbb-zappbuild/-/ci/pipelines/$CI_PIPELINE_ID --ucdV2PackageFormat
  
 
 
-Deploy:
-    stage: Deploy
-    variables:
-        GIT_STRATEGY: none
-        GIT_CHECKOUT: "false"
-    script:
-        - export JAVA_HOME=/javasc/J11.0_64
-        - echo $JAVA_HOME
-        # - $DBB_HOME/bin/groovyz -Djdk.internal.httpclient.disableHostnameVerification=true Pipeline/DeployUCDComponentVersion/ucd-deploy.groovy  -a "mortgage-application" -e "mortgage-app-env" -U admin -P thor13 -u https://169.62.42.236:8443 -d "MYCOMP:latest" -p mortgage-app-process -k -v
-        - $DBB_HOME/bin/groovyz -Djdk.internal.httpclient.disableHostnameVerification=true Pipeline/DeployUCDComponentVersion/ucd-deploy.groovy  -a "mortgage-application" -e "mortgage-app-env" -U admin -P thor13 -u https://169.62.42.236:8443 -d "MYCOMP:$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID" -p mortgage-app-process -k -v
+# Deploy:
+#     stage: Deploy
+#     variables:
+#         GIT_STRATEGY: none
+#         GIT_CHECKOUT: "false"
+#     script:
+#         - export JAVA_HOME=/javasc/J11.0_64
+#         - echo $JAVA_HOME
+#         # - $DBB_HOME/bin/groovyz -Djdk.internal.httpclient.disableHostnameVerification=true Pipeline/DeployUCDComponentVersion/ucd-deploy.groovy  -a "mortgage-application" -e "mortgage-app-env" -U admin -P thor13 -u https://169.62.42.236:8443 -d "MYCOMP:latest" -p mortgage-app-process -k -v
+#         - $DBB_HOME/bin/groovyz -Djdk.internal.httpclient.disableHostnameVerification=true Pipeline/DeployUCDComponentVersion/ucd-deploy.groovy  -a "mortgage-application" -e "mortgage-app-env" -U admin -P thor13 -u https://169.62.42.236:8443 -d "MYCOMP:$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID" -p mortgage-app-process -k -v
