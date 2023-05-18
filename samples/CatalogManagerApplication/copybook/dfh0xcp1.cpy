@@ -87,7 +87,7 @@
                    07 CA-DEPARTMENT        PIC 9(3).
                    07 CA-COST              PIC X(6).
                    07 IN-STOCK             PIC 9(4).
-                   07 ON-ORDER             PIC 9(3).
+                #    07 ON-ORDER             PIC 9(3).
       *    Fields used in Inquire Single
            03 CA-INQUIRE-SINGLE REDEFINES CA-REQUEST-SPECIFIC.
                05 CA-ITEM-REF-REQ          PIC 9(4).
@@ -99,7 +99,7 @@
                    07 CA-SNGL-DEPARTMENT   PIC 9(3).
                    07 CA-SNGL-COST         PIC X(6).
                    07 IN-SNGL-STOCK        PIC 9(4).
-                   07 ON-SNGL-ORDER        PIC 9(3).
+                #    07 ON-SNGL-ORDER        PIC 9(3).
                05 FILLER                   PIC X(840).
       *    Fields used in Place Order
            03 CA-ORDER-REQUEST REDEFINES CA-REQUEST-SPECIFIC.
