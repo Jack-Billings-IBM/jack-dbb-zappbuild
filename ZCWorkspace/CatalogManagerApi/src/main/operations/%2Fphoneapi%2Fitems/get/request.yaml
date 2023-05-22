@@ -1,0 +1,8 @@
+---
+mappings:
+- commarea:
+    mappings:
+    - DFH0XCP3:
+        mappings:
+        - CA-REQUEST-ID:
+            template: "01INQC"
