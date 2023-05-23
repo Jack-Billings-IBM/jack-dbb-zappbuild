@@ -1,0 +1,275 @@
+openapi: 3.0.0
+info:
+  description: Manage a catalog through an API for CICS.
+  license:
+    name: Apache-2.0
+    url: https://opensource.org/licenses/Apache-2.0
+  title: CatalogManagerApi
+  version: "1.1"
+servers:
+- url: /
+security:
+- BasicAuth: []
+- BearerAuth: []
+paths:
+  /phoneapi/items:
+    get:
+      description: Uses the catalogProgram CICS COMMAREA z/OS asset
+      operationId: getPhoneList
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogResponse'
+          description: OK
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+      summary: Get items in the catalog
+      tags:
+      - Catalog
+      x-accepts: application/json
+      x-tags:
+      - tag: Catalog
+  /phoneapi/items/{itemID}:
+    get:
+      description: Uses the catalogProgram CICS COMMAREA z/OS asset
+      operationId: getPhoneSingle
+      parameters:
+      - explode: false
+        in: path
+        name: itemID
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogItemResponse'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getPhoneSingle_404_response'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getPhoneSingle_500_response'
+          description: Internal Server Error
+      summary: Get an item from the catalog
+      tags:
+      - Catalog
+      x-accepts: application/json
+      x-tags:
+      - tag: Catalog
+components:
+  parameters:
+    itemID:
+      explode: false
+      in: path
+      name: itemID
+      required: true
+      schema:
+        type: string
+      style: simple
+    startItemID:
+      explode: true
+      in: query
+      name: startItemID
+      required: true
+      schema:
+        type: string
+      style: form
+    itemNumber:
+      explode: true
+      in: query
+      name: itemNumber
+      required: true
+      schema:
+        type: string
+      style: form
+    quantity:
+      explode: true
+      in: query
+      name: quantity
+      required: true
+      schema:
+        type: string
+      style: form
+  schemas:
+    ErrorResponse:
+      example:
+        message: A message describing the error
+      properties:
+        message:
+          type: string
+      type: object
+    CatalogResponse:
+      example:
+        cics_cat_resp:
+          inquire_request:
+            cat_item:
+            - itemID: 800
+              cost: cost
+              on_order: 595
+              description: description
+              department: 602
+              in_stock: 1465
+            - itemID: 800
+              cost: cost
+              on_order: 595
+              description: description
+              department: 602
+              in_stock: 1465
+      properties:
+        cics_cat_resp:
+          $ref: '#/components/schemas/CatalogResponse_cics_cat_resp'
+      type: object
+    CatalogItemResponse:
+      example:
+        cics_single_resp:
+          inquire_single:
+            single_item:
+              itemID: 800
+              cost: cost
+              on_order: 595
+              description: description
+              department: 602
+              in_stock: 1465
+      properties:
+        cics_single_resp:
+          $ref: '#/components/schemas/CatalogItemResponse_cics_single_resp'
+      type: object
+    getPhoneSingle_404_response:
+      example:
+        message: Item could not be found
+      properties:
+        message:
+          type: string
+      type: object
+    getPhoneSingle_500_response:
+      example:
+        message: A message describing the error
+      properties:
+        message:
+          type: string
+      type: object
+    CatalogResponse_cics_cat_resp_inquire_request_cat_item_inner:
+      example:
+        itemID: 800
+        cost: cost
+        on_order: 595
+        description: description
+        department: 602
+        in_stock: 1465
+      properties:
+        itemID:
+          maximum: 9999
+          minimum: 0
+          type: integer
+        description:
+          maxLength: 40
+          type: string
+        cost:
+          maxLength: 6
+          type: string
+        department:
+          maximum: 999
+          minimum: 0
+          type: integer
+        in_stock:
+          maximum: 9999
+          minimum: 0
+          type: integer
+        on_order:
+          maximum: 999
+          minimum: 0
+          type: integer
+      type: object
+    CatalogResponse_cics_cat_resp_inquire_request:
+      example:
+        cat_item:
+        - itemID: 800
+          cost: cost
+          on_order: 595
+          description: description
+          department: 602
+          in_stock: 1465
+        - itemID: 800
+          cost: cost
+          on_order: 595
+          description: description
+          department: 602
+          in_stock: 1465
+      properties:
+        cat_item:
+          items:
+            $ref: '#/components/schemas/CatalogResponse_cics_cat_resp_inquire_request_cat_item_inner'
+          type: array
+      type: object
+    CatalogResponse_cics_cat_resp:
+      example:
+        inquire_request:
+          cat_item:
+          - itemID: 800
+            cost: cost
+            on_order: 595
+            description: description
+            department: 602
+            in_stock: 1465
+          - itemID: 800
+            cost: cost
+            on_order: 595
+            description: description
+            department: 602
+            in_stock: 1465
+      properties:
+        inquire_request:
+          $ref: '#/components/schemas/CatalogResponse_cics_cat_resp_inquire_request'
+      type: object
+    CatalogItemResponse_cics_single_resp_inquire_single:
+      example:
+        single_item:
+          itemID: 800
+          cost: cost
+          on_order: 595
+          description: description
+          department: 602
+          in_stock: 1465
+      properties:
+        single_item:
+          $ref: '#/components/schemas/CatalogResponse_cics_cat_resp_inquire_request_cat_item_inner'
+      type: object
+    CatalogItemResponse_cics_single_resp:
+      example:
+        inquire_single:
+          single_item:
+            itemID: 800
+            cost: cost
+            on_order: 595
+            description: description
+            department: 602
+            in_stock: 1465
+      properties:
+        inquire_single:
+          $ref: '#/components/schemas/CatalogItemResponse_cics_single_resp_inquire_single'
+      type: object
+  securitySchemes:
+    BasicAuth:
+      scheme: basic
+      type: http
+    BearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
+
