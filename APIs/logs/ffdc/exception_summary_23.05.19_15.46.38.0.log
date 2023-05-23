@@ -1,6 +1,0 @@
-
- Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
-------+------+---------------------------+---------------------------+---------------------------
-     0      1    5/19/23 15:46:36:393 UTC    5/19/23 15:46:36:393 UTC java.io.IOException com.ibm.zosconnect.cics.internal.conn.isc.TcpConnection 408
-                                                                            - /logs/ffdc/ffdc_23.05.19_15.46.36.0.log
-------+------+---------------------------+---------------------------+---------------------------
