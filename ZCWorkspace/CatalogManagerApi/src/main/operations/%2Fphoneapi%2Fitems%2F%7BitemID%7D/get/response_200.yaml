@@ -1,0 +1,29 @@
+---
+mappings:
+- body:
+    mappings:
+    - cics_single_resp:
+        mappings:
+        - inquire_single:
+            mappings:
+            - single_item:
+                mappings:
+                - itemID:
+                    expression: "$zosAssetResponse.commarea.DFH0XCP4.\"CA-INQUIRE-SINGLE\"\
+                      .\"CA-SINGLE-ITEM\".\"CA-SNGL-ITEM-REF\""
+                - description:
+                    template: "{{$zosAssetResponse.commarea.DFH0XCP4.\"CA-INQUIRE-SINGLE\"\
+                      .\"CA-SINGLE-ITEM\".\"CA-SNGL-DESCRIPTION\"}}"
+                - cost:
+                    template: "{{$zosAssetResponse.commarea.DFH0XCP4.\"CA-INQUIRE-SINGLE\"\
+                      .\"CA-SINGLE-ITEM\".\"CA-SNGL-COST\"}}"
+                - department:
+                    expression: "$zosAssetResponse.commarea.DFH0XCP4.\"CA-INQUIRE-SINGLE\"\
+                      .\"CA-SINGLE-ITEM\".\"CA-SNGL-DEPARTMENT\""
+                - in_stock:
+                    expression: "$zosAssetResponse.commarea.DFH0XCP4.\"CA-INQUIRE-SINGLE\"\
+                      .\"CA-SINGLE-ITEM\".\"IN-SNGL-STOCK\""
+                - on_order:
+                    expression: "$zosAssetResponse.commarea.DFH0XCP4.\"CA-INQUIRE-SINGLE\"\
+                      .\"CA-SINGLE-ITEM\".\"ON-SNGL-ORDER\""
+version: 1
