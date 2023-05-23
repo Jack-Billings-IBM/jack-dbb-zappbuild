@@ -21,3 +21,4 @@
 *.yaml zos-working-tree-encoding=ibm-1047 git-encoding=utf-8
 *.dai zos-working-tree-encoding=ibm-1047 git-encoding=utf-8
 *.war zos-working-tree-encoding=ibm-1047 git-encoding=utf-8
+*.xml zos-working-tree-encoding=ibm-1047 git-encoding=utf-8
