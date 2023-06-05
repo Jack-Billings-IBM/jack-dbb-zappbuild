@@ -107,4 +107,4 @@
                05 CA-CHARGE-DEPT           PIC X(8).
                05 CA-ITEM-REF-NUMBER       PIC 9(4).
                05 CA-QUANTITY-REQ          PIC 9(3).
-            #    05 FILLER                   PIC X(888).
+               05 FILLER                   PIC X(888).
