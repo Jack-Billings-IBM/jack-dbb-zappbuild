@@ -74,11 +74,11 @@
 
        EPSCMORT-MAINLINE.
       * Call procedure to do SQL call
-           PERFORM A805-DUMMY-SQL-CALL
-           MOVE LENGTH OF DFHCOMMAREA to W-COMAREA-LENGTH.
-           MOVE DFHCOMMAREA to W-COMMUNICATION-AREA.
-           EVALUATE TRUE
-               WHEN EIBCALEN = ZERO
+      *    PERFORM A805-DUMMY-SQL-CALL
+      *    MOVE LENGTH OF DFHCOMMAREA to W-COMAREA-LENGTH.
+      *    MOVE DFHCOMMAREA to W-COMMUNICATION-AREA.
+      *    EVALUATE TRUE
+      *        WHEN EIBCALEN = ZERO
       * First time in - Show Screen
                    MOVE LOW-VALUES TO EPMENUO
                    SET SEND-ERASE TO TRUE
