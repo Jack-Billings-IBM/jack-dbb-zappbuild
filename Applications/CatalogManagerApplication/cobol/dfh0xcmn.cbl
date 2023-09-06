@@ -8,7 +8,7 @@
       *                                                               *
       *                                                               *
       *                                                               *
-      *      Licensed Matrials - Property of IBM                      *
+      *      Licensed Materials - Property of IBM                     *
       *                                                               *
       *      "Restricted Materials of IBM"                            *
       *                                                               *
@@ -133,9 +133,9 @@
       ******************************************************************
       *    L I N K A G E   S E C T I O N
       ******************************************************************
-      *LINKAGE SECTION.
-      *01 DFHCOMMAREA.
-      *    COPY DFH0XCP1.
+       LINKAGE SECTION.
+       01 DFHCOMMAREA.
+           COPY DFH0XCP1.
 
       ******************************************************************
       *    P R O C E D U R E S
