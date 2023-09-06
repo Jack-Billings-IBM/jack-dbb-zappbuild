@@ -8,7 +8,7 @@
       *                                                               *
       *                                                               *
       *                                                               *
-      *      Licensed Materials - Property of IBM                     *
+      *      Licensed Matrials - Property of IBM                     *
       *                                                               *
       *      "Restricted Materials of IBM"                            *
       *                                                               *
