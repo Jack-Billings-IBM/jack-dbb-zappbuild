@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<runner:RunnerConfiguration xmlns:runner="http://www.ibm.com/zUnit/3.0.0.0/TestRunner" id="91cd8e70-aa79-47f2-a38d-9b4d46f75b39">
+  <runner:options contOnTestCaseError="false" contOnTestCaseFail="true" contOnTestError="false" contOnTestFail="true" fileIOCapture="enable"/>
+  <runner:testCase moduleName="TEPSCMOR">
+    <test name="TEST1" entry="TEST_TEST1" type="CICS" init="BZU_INIT" term="BZU_TERM" program="EPSCMORT" skipTest="false" resetFile="true" stubCall="true" dummy="false"/>
+    <test name="TEST2" entry="TEST_TEST2" type="CICS" init="BZU_INIT" term="BZU_TERM" program="EPSCMORT" skipTest="false" resetFile="false" stubCall="true" dummy="false"/>
+    <test name="TEST3" entry="TEST_TEST3" type="CICS" init="BZU_INIT" term="BZU_TERM" program="EPSCMORT" skipTest="false" resetFile="false" stubCall="true" dummy="false"/>
+  </runner:testCase>
+  <runner:intercept module="EPSCMORT" stub="true" csect="EPSNBRVL" lengths="129" parmtype="I" retcode="false" exist="false"/>
+  <runner:playback moduleName="EPSCMORT">
+    <playbackFile name="&lt;HLQ>.ZUNIT.PB.EPSCMORT" localName="epscmort.plbck"/>
+  </runner:playback>
+  <runner:fileAttributes hlqDdName="AZUHLQ"/>
+</runner:RunnerConfiguration>
