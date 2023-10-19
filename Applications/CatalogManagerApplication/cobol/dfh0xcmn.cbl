@@ -168,7 +168,7 @@
                EXEC CICS ABEND ABCODE('EXCA') NODUMP END-EXEC
            END-IF
 
-      * Initalize commarea return code to zero
+      * Initalize commarea return code to zeros
            MOVE '00' TO CA-RETURN-CODE
            MOVE EIBCALEN TO WS-CALEN.
 
