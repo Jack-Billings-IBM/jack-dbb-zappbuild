@@ -1,16 +1,7 @@
 variables:
     DBB_HOME: "/usr/lpp/IBM/dbb"
     CI_DEBUG_TRACE: "true"
-#     ZAPPBUILD: $CI_PROJECT_DIR/dbb-zappbuild
-#     HLQ: "GITLAB.CATMAN"
-#     applicationName: "$CI_PROJECT_NAME"
-#     UCD_APPLICATION: "CatalogManager"
-#     UCD_COMPONENT: "CatalogManager"
-# #    artifactoryConfig: "/var/ucd-agent/conf/artifactory/CatalogManager.artifactory.properties"
-#     CONFIG_ARTIFACTORY: "${CI_PROJECT_DIR}/${CI_PROJECT_NAME}/application-conf/artifactory.properties"
-#     CONFIG_REPOSITORY_INFO: "${CI_PROJECT_DIR}/${CI_PROJECT_NAME}/application-conf/repositoryInfo.properties"
-#     CONFIG_CODE_REVIEW: "${CI_PROJECT_DIR}/${CI_PROJECT_NAME}/application-conf/codeReview.properties"
-#     PROPERTY_GROUP_FILE: "${CI_PROJECT_DIR}/${CI_PROJECT_NAME}/application-conf/property-group.xml"
+
 
 stages:
     - Build
