@@ -175,11 +175,11 @@
       *----------------------------------------------------------------*
       * Read in configuration file and set up program names
       *----------------------------------------------------------------*
-      *    EXEC CICS READ FILE('EXMPCONF')
-      *                   INTO(APP-CONFIG)
-      *                   RIDFLD(EXAMPLE-APP-CONFIG)
-      *                   RESP(WS-RETURN-CODE)
-      *    END-EXEC
+           EXEC CICS READ FILE('EXMPCONF')
+                          INTO(APP-CONFIG)
+                          RIDFLD(EXAMPLE-APP-CONFIG)
+                          RESP(WS-RETURN-CODE)
+           END-EXEC
 
            IF WS-RETURN-CODE NOT EQUAL DFHRESP(NORMAL)
                MOVE '51' TO CA-RETURN-CODE
