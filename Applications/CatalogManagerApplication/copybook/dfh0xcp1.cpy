@@ -85,7 +85,7 @@
                    07 CA-ITEM-REF          PIC 9(4).
                    07 CA-DESCRIPTION       PIC X(40).
                    07 CA-DEPARTMENT        PIC 9(3).
-      *             07 CA-COST              PIC X(6).
+                   07 CA-COST              PIC X(6).
                    07 IN-STOCK             PIC 9(4).
                    07 ON-ORDER             PIC 9(3).
       *    Fields used in Inquire Single
