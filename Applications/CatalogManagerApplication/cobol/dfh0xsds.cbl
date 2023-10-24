@@ -377,7 +377,7 @@
       *================================================================*
       * Procedure to link to Datastore program to place order,         *
       *   send request to dispatcher and notify stock manager          *
-      *   an order has been placed                                     *
+      *   an order has been place                                     *
       *================================================================*
         PLACE-ORDER.
       *                                                            $P1C
