@@ -222,10 +222,10 @@
       * Uppercase the value passed in the Request Id field
            MOVE FUNCTION UPPER-CASE(CA-REQUEST-ID) TO CA-REQUEST-ID
 
-      *    EVALUATE CA-REQUEST-ID
-      *        WHEN '01INQC'
+           EVALUATE CA-REQUEST-ID
+               WHEN '01INQC'
       *        Call routine to perform for inquire
-      *            PERFORM CATALOG-INQUIRE
+                   PERFORM CATALOG-INQUIRE
 
                WHEN '01INQS'
       *        Call routine to perform for inquire for single item
