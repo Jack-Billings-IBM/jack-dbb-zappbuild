@@ -272,7 +272,7 @@
 
       *================================================================*
       * Procedure to link to Datastore program to inquire              *
-      *   on the catalog datas                                          *
+      *   on the catalog data                                          *
       *================================================================*
         CATALOG-INQUIRE.
            MOVE 'EXCATMAN: CATALOG-INQUIRE' TO CA-RESPONSE-MESSAGE
