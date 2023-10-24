@@ -274,12 +274,12 @@
       * Procedure to link to Datastore program to inquire              *
       *   on the catalog data                                          *
       *================================================================*
-      * CATALOG-INQUIRE.
-      *    MOVE 'EXCATMAN: CATALOG-INQUIRE' TO CA-RESPONSE-MESSAGE
-      *    EXEC CICS LINK   PROGRAM(WS-DATASTORE-PROG)
-      *                     COMMAREA(DFHCOMMAREA)
-      *    END-EXEC
-      *    EXIT.
+        CATALOG-INQUIRE.
+           MOVE 'EXCATMAN: CATALOG-INQUIRE' TO CA-RESPONSE-MESSAGE
+           EXEC CICS LINK   PROGRAM(WS-DATASTORE-PROG)
+                            COMMAREA(DFHCOMMAREA)
+           END-EXEC
+           EXIT.
 
       *================================================================*
       * Procedure to link to Datastore program to place order,         *
