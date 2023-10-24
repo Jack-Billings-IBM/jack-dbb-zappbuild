@@ -430,7 +430,7 @@
            EVALUATE WS-RESPONSE-CODE
                WHEN DFHRESP(NORMAL)
       *                                                            $P1C
-                   MOVE 'ORDER SUCCESSFULLY PLACED'
+                   MOVE '***************'
                         TO CA-RESPONSE-MESSAGE
                WHEN OTHER
                    MOVE 22 TO CA-RETURN-CODE
