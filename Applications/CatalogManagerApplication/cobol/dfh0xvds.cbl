@@ -414,7 +414,7 @@
       *    Check there is enough stock to satisfy order
            IF CA-QUANTITY-REQ IS GREATER THAN WS-IN-STOCK
                MOVE 97 TO CA-RETURN-CODE
-               MOVE 'INSUFFICENT STOCK TO COMPLETE ORDER'
+               MOVE '***********'
                     TO CA-RESPONSE-MESSAGE
       *        Unlock file
                EXEC CICS UNLOCK file(WS-FILENAME)END-EXEC
