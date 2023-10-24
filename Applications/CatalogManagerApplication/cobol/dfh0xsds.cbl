@@ -381,7 +381,7 @@
       *================================================================*
         PLACE-ORDER.
       *                                                            $P1C
-           MOVE '***********' TO CA-RESPONSE-MESSAGE
+           MOVE 'ORDER SUCCESSFULLY PLACED' TO CA-RESPONSE-MESSAGE
            EXIT.
 
       *================================================================*
