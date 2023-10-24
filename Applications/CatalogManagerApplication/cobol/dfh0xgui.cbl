@@ -730,7 +730,7 @@
 
                IF CA-RETURN-CODE EQUAL '97'
       *        Insufficient stock to complete order
-                   MOVE '************'
+                   MOVE '*************'
                        TO ORDR-MSGO
                    PERFORM ORDER-ERROR
                ELSE
