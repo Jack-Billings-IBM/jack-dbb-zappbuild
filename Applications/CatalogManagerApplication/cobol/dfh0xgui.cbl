@@ -729,7 +729,7 @@
                END-EXEC
 
                IF CA-RETURN-CODE EQUAL '97'
-      *        Insufficient stock to complete order
+      *        Insufficient stocks to complete order
                    MOVE 'INSUFFICIENT STOCK TO COMPLETE ORDER'
                        TO ORDR-MSGO
                    PERFORM ORDER-ERROR
